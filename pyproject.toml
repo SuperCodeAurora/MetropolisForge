@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "metropolis-forge"
+version = "0.1.0"
+description = "SimCity for your Codebase. A TUI productivity tool."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "AGPL-3.0" }
+authors = [
+  { name = "Your Name", email = "you@example.com" },
+]
+
+# Core Dependencies
+dependencies = [
+  "textual>=0.40.0",   # TUI Framework
+  "rich>=13.0.0",      # Terminal Styling
+  "pydantic>=2.0.0",   # Data Validation
+  "aiosqlite>=0.17.0", # Async Database
+]
+
+[project.scripts]
+# Allows running 'forge' in terminal after installation
+forge = "metropolis_forge.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/metropolis_forge"]
